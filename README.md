@@ -121,7 +121,7 @@ Las imágenes se añaden a `public/images/projects/`. Su ruta pública empieza p
 - **Tecnologías desplegables:** cada tarjeta muestra su stack con el elemento HTML nativo `details`. Se puede abrir con ratón o teclado y no necesita JavaScript ni servicios externos.
 - **Trayectoria personal:** la sección «Sobre mí» resume la carta de motivación y el CV aportados, incluida la experiencia previa en hostelería, consultoría y desarrollo de negocio. Los textos están en `src/components/HomePage.astro`, en español e inglés; no se incluyen el teléfono ni la dirección de los documentos originales.
 - **CV público separado del original:** los PDF publicados son copias revisadas. La versión española de dos páginas elimina el teléfono y conserva solo los datos autorizados; el archivo original no entra en `public/` ni en el repositorio.
-- **Sin dominio inventado:** los enlaces de idioma de navegación funcionan ya. Los metadatos absolutos de idiomas y URL canónica se activarán al configurar el dominio real en `astro.config.mjs`, durante la fase 5.
+- **URL pública configurada:** `astro.config.mjs` usa la dirección de producción en Vercel para generar las URL canónicas y las alternativas ES/EN. Si más adelante se conecta un dominio propio, hay que sustituir allí esta dirección.
 
 ## Actualizar el CV
 
