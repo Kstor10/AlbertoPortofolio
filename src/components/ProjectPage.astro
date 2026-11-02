@@ -1,0 +1,48 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { type Locale } from "../data/site";
+import { imageDimensions } from "../lib/images";
+interface Props { project: CollectionEntry<"projects">; locale: Locale }
+const { project, locale } = Astro.props;
+const content = project.data[locale]; const es = locale === "es";
+const home = es ? "/" : "/en/";
+const alternate = es ? `/en/projects/${project.id}/` : `/proyectos/${project.id}/`;
+const dimensions = await imageDimensions(project.data.cover);
+const coverAlt = content.gallery.find((shot) => shot.src === project.data.cover)?.alt ?? content.title;
+const gallery = await Promise.all(content.gallery.map(async (shot) => ({ ...shot, ...await imageDimensions(shot.src) })));
+const status = {
+  es: { functional: "Demo funcional", prototype: "Prototipo técnico", academic: "Proyecto académico" },
+  en: { functional: "Functional demo", prototype: "Technical prototype", academic: "Academic project" },
+}[locale][project.data.status];
+const labels = es ? {back:"Todos los proyectos", problem:"El contexto", solution:"La solución", result:"Resultado", role:"Mi participación", stack:"Tecnología", gallery:"El proyecto por dentro", galleryText:"Capturas de la aplicación con datos de demostración o aislados.", repo:"Repositorio público", more:"Volver a proyectos", next:"Más proyectos"} : {back:"All projects", problem:"The context", solution:"The solution", result:"Outcome", role:"My contribution", stack:"Technology", gallery:"Inside the project", galleryText:"Screenshots of the application using demonstration or isolated data.", repo:"Public repository", more:"Back to projects", next:"More projects"};
+---
+<BaseLayout locale={locale} title={content.title} description={content.summary} image={project.data.cover} alternatePath={alternate}>
+<article class="case-page">
+  <header class="shell case-header">
+    <a class="back-link" href={`${home}#proyectos`}>← {labels.back}</a>
+    <div class="case-heading"><div><p class="case-meta">{content.eyebrow} · {status} · {project.data.year}</p><h1>{content.title}</h1></div><p>{content.summary}</p></div>
+  </header>
+  <figure class="shell case-cover"><img src={project.data.cover} alt={coverAlt} {...dimensions} fetchpriority="high" /></figure>
+  <section class="shell case-overview">
+    <div class="case-main">
+      <section><h2>{labels.problem}</h2><p>{content.problem}</p></section>
+      <section><h2>{labels.solution}</h2><ul>{content.solution.map(item => <li>{item}</li>)}</ul></section>
+      <section><h2>{labels.result}</h2><p>{content.result}</p></section>
+    </div>
+    <aside class="case-aside">
+      <section><h2>{labels.role}</h2><ul>{content.role.map(item => <li>{item}</li>)}</ul></section>
+      <section><h2>{labels.stack}</h2><p>{content.stack.join(" · ")}</p>
+        {project.data.repo && <a href={project.data.repo} target="_blank" rel="noreferrer">{labels.repo} ↗</a>}
+      </section>
+    </aside>
+  </section>
+  <section class="shell gallery-section"><div class="section-heading"><h2>{labels.gallery}</h2><p>{labels.galleryText}</p></div>
+    <div class="gallery-grid">{gallery.map((shot, index) => <figure class:list={["gallery-item", {"gallery-wide": index === 0 || (gallery.length % 2 === 0 && index === gallery.length - 1)}]}>
+      <a href={shot.src} target="_blank" rel="noreferrer" aria-label={`${es ? "Ampliar captura" : "Open full screenshot"}: ${shot.alt}`}><img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} loading="lazy" decoding="async" /></a>
+      <figcaption>{shot.caption}</figcaption>
+    </figure>)}</div>
+    <a class="back-link bottom-back" href={`${home}#proyectos`}>← {labels.more}</a>
+  </section>
+</article>
+</BaseLayout>

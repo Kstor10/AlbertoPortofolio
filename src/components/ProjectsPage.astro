@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "./ProjectCard.astro";
+import { ui, type Locale } from "../data/site";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const es = locale === "es";
+const projects = (await getCollection("projects")).sort((a,b) => a.data.order-b.data.order);
+const copy = es ? {
+  title: "Proyectos",
+  description: "Proyectos de Alberto Dávalos en inteligencia artificial, agentes, desarrollo y automatización.",
+  lead: "Ideas y experiencias convertidas en proyectos que se pueden explorar.",
+  text: "Una selección de trabajos personales y académicos. Cada caso muestra el contexto, mi participación, la tecnología y capturas de la aplicación.",
+  note: "La situación de cada proyecto se indica en su ficha: demo, prototipo o trabajo académico.",
+} : {
+  title: "Projects",
+  description: "Alberto Dávalos’s projects in artificial intelligence, agents, development and automation.",
+  lead: "Ideas and experiences turned into projects you can explore.",
+  text: "A selection of personal and academic work. Each case presents the context, my contribution, technology and screenshots.",
+  note: "Each project is labelled as a demo, prototype or academic work.",
+};
+---
+<BaseLayout locale={locale} title={copy.title} description={copy.description} alternatePath={es ? "/en/projects/" : "/proyectos/"}>
+  <header class="shell editorial-header">
+    <div><h1>{copy.title}<span>.</span></h1><p class="editorial-lead">{copy.lead}</p></div>
+    <div class="editorial-intro"><p>{copy.text}</p><p class="editorial-note">{copy.note}</p></div>
+  </header>
+  <section class="shell standalone-projects" aria-label={copy.title}>
+    <div class="project-grid">{projects.map((project,index) => <ProjectCard project={project} locale={locale} index={index} />)}</div>
+    <div class="end-links"><a href={ui[locale].aboutPath}>{ui[locale].aboutLabel} ↗</a><a href={ui[locale].educationPath}>{ui[locale].educationLabel} ↗</a></div>
+  </section>
+</BaseLayout>

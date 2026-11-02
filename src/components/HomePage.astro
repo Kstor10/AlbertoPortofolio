@@ -1,0 +1,105 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HomeProject from "./HomeProject.astro";
+import { education } from "../data/education";
+import { profile, type Locale } from "../data/site";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const es = locale === "es";
+const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
+const copy = es ? {
+  description: "Portfolio profesional de Alberto Dávalos, estudiante de DAM y emprendedor.",
+  role: "Estudiante de DAM · Emprendedor",
+  intro: "Combino producto, inteligencia artificial y desarrollo para convertir ideas en productos reales. Me interesa entender los problemas, experimentar con tecnología y construir soluciones útiles y bien resueltas.",
+  seeWork: "Ver proyectos", seeProfile: "Sobre mí",
+  workTitle: "Proyectos seleccionados",
+  workIntro: "Proyectos personales y académicos explicados desde el problema hasta la solución, con mi contribución, las decisiones técnicas y capturas del producto funcionando.",
+  aboutTitle: "Sobre mí",
+  aboutLead: "Curiosidad por la tecnología. Atención a las personas.",
+  about: [
+    "Mi interés por la tecnología empezó con Bitcoin y blockchain en 2014. Mi trayectoria profesional comenzó en la hostelería, trabajando con equipos internacionales y aprendiendo a escuchar a personas con necesidades muy distintas.",
+    "La inteligencia artificial generativa me impulsó a orientar mi carrera hacia la tecnología. Cofundé Datway.ai y trabajé en proyectos de IA y automatización para empresas, traduciendo necesidades reales en herramientas útiles y decisiones de producto concretas.",
+    "Me gusta participar desde la definición del problema hasta la primera versión de un producto. Utilizo herramientas de IA para apoyar el desarrollo y reviso y pruebo las soluciones. Así trabajo en The Looper, presentado aquí como Golfy.ai, y en otros proyectos propios.",
+    "Actualmente estudio Desarrollo de Aplicaciones Multiplataforma. Quiero profundizar en Python, Java, TypeScript, React, React Native, Node.js, SQL y Supabase; mejorar en testing, arquitectura, cloud y MLOps; y seguir explorando agentes de IA con CrewAI, LangChain, LangFlow, Eliza, OpenClaw, Hermes y MCP. Mi objetivo es construir una base técnica sólida para desarrollar productos propios y colaborar con equipos profesionales.",
+  ],
+  journey: "Mi recorrido",
+  journeyItems: [
+    { date: "2014", title: "Bitcoin y blockchain", text: "Comienza mi interés por las tecnologías descentralizadas." },
+    { date: "2016–2018", title: "Hostelería internacional", text: "Bartender, lead bartender e instructor en Barcelona y Ámsterdam." },
+    { date: "2019–2024", title: "Consultoría freelance", text: "Consultoría en hostelería y coctelería, estrategia, presupuestos y formación de equipos." },
+    { date: "2020", title: "Business Developer", text: "Gestión de clientes, CRM y propuestas comerciales para Schweppes Premium Mixers." },
+    { date: "2023–2025", title: "Datway.ai", text: "Cofundador; proyectos de IA y automatización." },
+    { date: "En curso", title: "Desarrollo de aplicaciones", text: "Grado Superior de Desarrollo de Aplicaciones Multiplataforma." },
+  ],
+  educationTitle: "Formación",
+  cv: "Descargar CV",
+} : {
+  description: "Professional portfolio of Alberto Dávalos, software development student and entrepreneur.",
+  role: "Software development student · Entrepreneur",
+  intro: "I combine product, artificial intelligence and development to turn ideas into real products. I enjoy understanding problems, experimenting with technology and building useful, well-resolved solutions.",
+  seeWork: "Explore projects", seeProfile: "About me",
+  workTitle: "Selected projects",
+  workIntro: "Personal and academic projects explained from problem to solution, including my contribution, technical decisions and screenshots of the product in use.",
+  aboutTitle: "About me",
+  aboutLead: "Curiosity for technology. Attention to people.",
+  about: [
+    "My interest in technology began with Bitcoin and blockchain in 2014. I started my career in hospitality, working with international teams and learning to listen to people with very different needs.",
+    "Generative AI inspired me to move into technology. I co-founded Datway.ai and worked on AI and automation projects for businesses, translating real needs into useful tools and concrete product decisions.",
+    "I enjoy taking part from defining the problem to building a first version. I use AI tools to support development and review and test the solutions. This is how I work on The Looper, shown here as Golfy.ai, and other personal projects.",
+    "I am studying Multiplatform Application Development. I want to deepen my knowledge of Python, Java, TypeScript, React, React Native, Node.js, SQL and Supabase; improve at testing, architecture, cloud and MLOps; and keep exploring AI agents with CrewAI, LangChain, LangFlow, Eliza, OpenClaw, Hermes and MCP. My goal is to build strong technical foundations for creating my own products and collaborating with professional teams.",
+  ],
+  journey: "My journey",
+  journeyItems: [
+    { date: "2014", title: "Bitcoin and blockchain", text: "My interest in decentralised technologies begins." },
+    { date: "2016–2018", title: "International hospitality", text: "Bartender, lead bartender and instructor roles in Barcelona and Amsterdam." },
+    { date: "2019–2024", title: "Freelance consulting", text: "Hospitality and cocktail consulting, strategy, budgeting and team training." },
+    { date: "2020", title: "Business Developer", text: "Client management, CRM and commercial proposals for Schweppes Premium Mixers." },
+    { date: "2023–2025", title: "Datway.ai", text: "Co-founder; AI and automation projects." },
+    { date: "In progress", title: "Application development", text: "Higher vocational programme in Multiplatform Application Development." },
+  ],
+  educationTitle: "Education",
+  cv: "Download résumé",
+};
+---
+<BaseLayout locale={locale} title={profile.name} description={copy.description} alternatePath={es ? "/en/" : "/"} image={projects[0]?.data.cover}>
+  <section class="home-hero shell" aria-labelledby="home-title">
+    <div class="home-hero-copy">
+      <h1 id="home-title">Alberto<br /><span>Dávalos</span><span class="home-dot">.</span></h1>
+      <p class="home-role">{copy.role}</p>
+      <p class="home-intro">{copy.intro}</p>
+      <div class="home-actions"><a class="home-button" href="#proyectos">{copy.seeWork}</a><a class="home-text-link" href="#perfil">{copy.seeProfile}</a></div>
+    </div>
+  </section>
+
+  <section id="proyectos" class="home-work shell" aria-labelledby="work-title">
+    <div class="home-section-heading"><h2 id="work-title">{copy.workTitle}</h2><p>{copy.workIntro}</p></div>
+    <div class="home-project-list">{projects.map((project) => <HomeProject project={project} locale={locale} />)}</div>
+  </section>
+
+  <section id="perfil" class="home-about shell" aria-labelledby="about-title">
+    <div class="home-section-heading"><h2 id="about-title">{copy.aboutTitle}</h2><p>{copy.aboutLead}</p></div>
+    <div class="home-about-layout">
+      <div class="home-about-story">{copy.about.map((paragraph) => <p>{paragraph}</p>)}</div>
+      <div class="home-journey"><h3>{copy.journey}</h3>
+        <ol>{copy.journeyItems.map((item) => <li><span>{item.date}</span><div><h4>{item.title}</h4><p>{item.text}</p></div></li>)}</ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="formacion" class="home-education shell" aria-labelledby="education-title">
+    <div class="home-section-heading"><h2 id="education-title">{copy.educationTitle}</h2></div>
+    <div class="home-education-groups">
+      {education[locale].map((group) => (
+        <section class="home-education-group">
+          <h3>{group.title}</h3>
+          <div>{group.items.map((item) => (
+            <article class="home-education-item"><div><h4>{item.name}</h4><p>{item.provider}</p></div><div class="home-education-meta"><span>{item.date}</span><span>{item.kind}</span></div></article>
+          ))}</div>
+        </section>
+      ))}
+    </div>
+    <a class="home-button home-cv" href={es ? "/cv-luis-alberto-davalos-es.pdf" : "/cv-luis-alberto-davalos-en.pdf"} download>{copy.cv}</a>
+  </section>
+</BaseLayout>

@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from "astro:content";
+import type { Locale } from "../data/site";
+import { imageDimensions } from "../lib/images";
+
+interface Props { project: CollectionEntry<"projects">; locale: Locale }
+const { project, locale } = Astro.props;
+const content = project.data[locale];
+const es = locale === "es";
+const coverDimensions = await imageDimensions(project.data.cover);
+const coverAlt = content.gallery.find((image) => image.src === project.data.cover)?.alt ?? content.title;
+const gallery = await Promise.all(content.gallery.map(async (image) => ({ ...image, ...(await imageDimensions(image.src)) })));
+const status = {
+  es: { functional: "Demo funcional", prototype: "Prototipo técnico", academic: "Proyecto académico" },
+  en: { functional: "Functional demo", prototype: "Technical prototype", academic: "Academic project" },
+}[locale][project.data.status];
+---
+<article class="home-project">
+  <div class="home-project-image">
+    <img src={project.data.cover} alt={coverAlt} {...coverDimensions} loading="lazy" decoding="async" />
+    <p>{content.eyebrow}</p>
+  </div>
+  <div class="home-project-copy">
+    <h3>{content.title}</h3>
+    <p class="home-project-status">{status} · {project.data.year}</p>
+    <p class="home-project-summary">{content.summary}</p>
+    <ul class="home-stack home-stack-preview" aria-label={es ? "Tecnologías principales" : "Main technologies"}>{content.stack.slice(0, 4).map((tech) => <li>{tech}</li>)}</ul>
+  </div>
+  <details class="home-project-details">
+      <summary>{es ? "Ver detalles y capturas" : "View details and screenshots"}<span aria-hidden="true">+</span></summary>
+      <div class="home-project-expanded">
+        <dl class="project-narrative">
+          <div><dt>{es ? "El reto" : "The challenge"}</dt><dd>{content.problem}</dd></div>
+          <div><dt>{es ? "Mi papel" : "My role"}</dt><dd>{content.role.join(" · ")}</dd></div>
+          <div><dt>{es ? "Resultado" : "Result"}</dt><dd>{content.result}</dd></div>
+        </dl>
+        <h4>{es ? "La solución" : "The solution"}</h4>
+        <ul>{content.solution.map((point) => <li>{point}</li>)}</ul>
+        <h4>{es ? "Tecnologías" : "Technologies"}</h4>
+        <ul class="home-stack">{content.stack.map((tech) => <li>{tech}</li>)}</ul>
+        <h4>{es ? "Capturas del proyecto" : "Project screenshots"}</h4>
+        <div class="home-gallery">
+          {gallery.map((image) => (
+            <figure><img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" /><figcaption>{image.caption}</figcaption></figure>
+          ))}
+        </div>
+        {project.data.repo && <a class="home-inline-link" href={project.data.repo} target="_blank" rel="noreferrer">{es ? "Ver código en GitHub" : "View code on GitHub"} <span aria-hidden="true">↗</span></a>}
+      </div>
+  </details>
+</article>

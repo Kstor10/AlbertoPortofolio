@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { education } from "../data/education";
+import { ui, type Locale } from "../data/site";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const es = locale === "es";
+const t = ui[locale];
+const groups = education[locale];
+const copy = es ? {
+  title: "Formación",
+  description: "Formación de Alberto Dávalos en inteligencia artificial, producto, blockchain y desarrollo de aplicaciones.",
+  intro: "Una trayectoria de aprendizaje que conecta inteligencia artificial, gestión de producto y desarrollo.",
+  text: "Combino estudios técnicos con cursos en modelos de lenguaje, IA generativa y tecnologías descentralizadas. Aquí puedes recorrer la formación que acompaña mis proyectos.",
+  index: "Explorar formación",
+  profile: "Conocer mi trayectoria",
+  cv: "Descargar CV público",
+} : {
+  title: "Education",
+  description: "Alberto Dávalos’s education in artificial intelligence, product, blockchain and application development.",
+  intro: "A learning journey connecting artificial intelligence, product management and development.",
+  text: "I combine technical studies with courses in language models, generative AI and decentralised technologies. Explore the education behind my projects.",
+  index: "Explore education",
+  profile: "Read my story",
+  cv: "Download public résumé",
+};
+---
+<BaseLayout locale={locale} title={copy.title} description={copy.description} alternatePath={es ? "/en/education/" : "/formacion/"}>
+  <header class="shell editorial-header">
+    <div><h1>{copy.title}<span>.</span></h1><p class="editorial-lead">{copy.intro}</p></div>
+    <div class="editorial-intro"><p>{copy.text}</p><a href={t.cvPath} download>{copy.cv} ↗</a></div>
+  </header>
+  <nav class="shell section-index" aria-label={copy.index}>
+    {groups.map(group => <a href={`#${group.id}`}>{group.title}</a>)}
+  </nav>
+  <div class="shell education-sections">
+    {groups.map(group => (
+      <section class="education-group" id={group.id}>
+        <div class="education-group-heading"><h2>{group.title}</h2><p>{group.description}</p></div>
+        <div class="education-list">
+          {group.items.map(item => (
+            <article class="education-item">
+              <div class="education-date">{item.date}</div>
+              <div><h3>{item.name}</h3><p>{item.provider}</p></div>
+              <p class="education-kind">{item.kind}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+    <div class="end-links"><a href={t.aboutPath}>{copy.profile} ↗</a><a href={t.projectsPath}>{t.projectsLabel} ↗</a></div>
+  </div>
+</BaseLayout>

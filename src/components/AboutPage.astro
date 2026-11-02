@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile, ui, type Locale } from "../data/site";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const es = locale === "es";
+const t = ui[locale];
+const copy = es ? {
+  title: "Sobre mí",
+  description: "La trayectoria de Alberto Dávalos: de la hostelería y los equipos internacionales a la inteligencia artificial, el producto y el desarrollo.",
+  headline: "Curiosidad por la tecnología. Atención a las personas.",
+  intro: "Soy AI Product Manager y estudiante de Desarrollo de Aplicaciones Multiplataforma. Me interesa comprender una necesidad, darle forma como producto y participar en su construcción.",
+  index: "Explorar mi trayectoria",
+  nav: ["Mi recorrido", "Cómo trabajo", "En qué estoy aprendiendo"],
+  first: "Un recorrido que une personas y tecnología",
+  story: [
+    "La tecnología despertó mi curiosidad hace años. En 2014 empecé a interesarme por Bitcoin y blockchain, mientras mi trayectoria profesional comenzaba en la hostelería.",
+    "Trabajar en equipos internacionales me enseñó a comunicarme con personas de perfiles distintos, escuchar a los clientes y buscar soluciones útiles. Esa experiencia sigue presente en mi manera de entender un producto.",
+    "La llegada de la inteligencia artificial generativa me impulsó a orientar mi carrera hacia la tecnología. Cofundé Datway.ai, una agencia con la que trabajé en proyectos de IA y automatización para empresas.",
+  ],
+  second: "Del problema a algo que se puede probar",
+  process: [
+    "Me gusta participar en el recorrido completo: entender el contexto, definir los requisitos, planificar una primera versión y revisar el resultado con atención.",
+    "Actualmente desarrollo The Looper, presentado en este portfolio como Golfy.ai: una aplicación móvil para organizar partidas, registrar resultados y conectar a golfistas. Utilizo herramientas de IA como apoyo al desarrollo y reviso y pruebo las soluciones.",
+    "También he creado PropIA, orientado al análisis inmobiliario con agentes de IA, y he trabajado en automatización de incidencias y visualización de tickets.",
+  ],
+  third: "Una base técnica en construcción",
+  learning: [
+    "Estoy finalizando el Grado Superior de Desarrollo de Aplicaciones Multiplataforma. Quiero seguir aprendiendo Python, React y desarrollo móvil, participar en proyectos de IA y comprender cómo trabaja un equipo profesional desde la definición del producto hasta su entrega.",
+    "Mi objetivo es crecer como profesional de producto e inteligencia artificial y desarrollar aplicaciones propias con una base técnica sólida.",
+  ],
+  visual: "El trabajo, por dentro",
+  visualText: "Una mirada al código y a las interfaces de los proyectos que estoy construyendo.",
+  codeAlt: "Captura de GitHub con código JavaScript de FocusFlow para el estado del temporizador y el bloqueo de páginas",
+  codeCaption: "FocusFlow · Código público del temporizador y la extensión en GitHub.",
+  appAlt: "Pantalla de demostración del telémetro GPS de Golfy.ai durante una partida",
+  appCaption: "Golfy.ai / The Looper · Vista de demostración del telémetro GPS.",
+  training: "Ver formación y cursos",
+  projects: "Explorar proyectos",
+  cv: "Descargar CV",
+} : {
+  title: "About me",
+  description: "Alberto Dávalos’s journey from hospitality and international teams to artificial intelligence, product and development.",
+  headline: "Curiosity for technology. Attention to people.",
+  intro: "I am an AI Product Manager and a Multiplatform Application Development student. I enjoy understanding a need, shaping it into a product and taking part in building it.",
+  index: "Explore my story",
+  nav: ["My journey", "How I work", "What I’m learning"],
+  first: "A path connecting people and technology",
+  story: [
+    "Technology has interested me for years. In 2014 I began exploring Bitcoin and blockchain, while my professional career started in hospitality.",
+    "Working in international teams taught me to communicate with people from different backgrounds, listen to customers and look for useful solutions. That experience still shapes how I think about products.",
+    "The arrival of generative AI inspired me to move into technology. I co-founded Datway.ai, an agency where I worked on AI and automation projects for businesses.",
+  ],
+  second: "From a problem to something you can try",
+  process: [
+    "I like taking part in the full process: understanding the context, defining requirements, planning a first version and carefully reviewing the result.",
+    "I am currently developing The Looper, shown in this portfolio as Golfy.ai: a mobile app for organising games, recording scores and connecting golfers. I use AI tools to support development, while reviewing and testing the solutions.",
+    "I also created PropIA for real-estate analysis with AI agents, and have worked on incident automation and ticket visualisation.",
+  ],
+  third: "Building my technical foundations",
+  learning: [
+    "I am completing a higher vocational programme in Multiplatform Application Development. I want to keep learning Python, React and mobile development, contribute to AI projects and understand how a professional team works from product definition to delivery.",
+    "My goal is to grow as a product and AI professional and build my own applications on strong technical foundations.",
+  ],
+  visual: "Inside the work",
+  visualText: "A look at the code and interfaces behind the projects I am building.",
+  codeAlt: "GitHub screenshot of FocusFlow JavaScript code for the timer state and website blocking",
+  codeCaption: "FocusFlow · Public timer and extension code on GitHub.",
+  appAlt: "Demonstration screen of the Golfy.ai GPS rangefinder during a round",
+  appCaption: "Golfy.ai / The Looper · GPS rangefinder demonstration.",
+  training: "Explore education",
+  projects: "Explore projects",
+  cv: "Download résumé",
+};
+---
+<BaseLayout locale={locale} title={copy.title} description={copy.description} alternatePath={es ? "/en/about/" : "/sobre-mi/"}>
+  <header class="shell editorial-header about-header">
+    <div><h1>{copy.title}<span>.</span></h1><p class="editorial-lead">{copy.headline}</p></div>
+    <div class="editorial-intro"><p>{copy.intro}</p><a href={t.cvPath} download>{copy.cv} ↗</a></div>
+  </header>
+  <nav class="shell section-index" aria-label={copy.index}>
+    <a href="#trayectoria">{copy.nav[0]}</a><a href="#trabajo">{copy.nav[1]}</a><a href="#aprendizaje">{copy.nav[2]}</a>
+  </nav>
+  <div class="shell biography">
+    <section class="bio-section" id="trayectoria"><h2>{copy.first}</h2><div>{copy.story.map(p => <p>{p}</p>)}</div></section>
+    <section class="bio-section" id="trabajo"><h2>{copy.second}</h2><div>{copy.process.map(p => <p>{p}</p>)}</div></section>
+    <section class="bio-section" id="aprendizaje"><h2>{copy.third}</h2><div>{copy.learning.map(p => <p>{p}</p>)}</div></section>
+  </div>
+  <section class="shell personal-gallery">
+    <div class="section-heading"><h2>{copy.visual}</h2><p>{copy.visualText}</p></div>
+    <div class="personal-gallery-grid">
+      <figure><a href="https://github.com/Kstor10/FocusFlow/blob/master/extension/background.js" target="_blank" rel="noreferrer"><img src="/images/focusflow-codigo.webp" alt={copy.codeAlt} width="1060" height="590" loading="lazy" decoding="async" /></a><figcaption>{copy.codeCaption}</figcaption></figure>
+      <figure><a href={es ? "/proyectos/golfy-ai/" : "/en/projects/golfy-ai/"}><img src="/images/projects/golfy/golfy-07-telemetro-gps.webp" alt={copy.appAlt} width="1440" height="1080" loading="lazy" decoding="async" /></a><figcaption>{copy.appCaption}</figcaption></figure>
+    </div>
+    <div class="end-links"><a href={t.educationPath}>{copy.training} ↗</a><a href={t.projectsPath}>{copy.projects} ↗</a><a href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a></div>
+  </section>
+</BaseLayout>

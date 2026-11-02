@@ -1,0 +1,166 @@
+{
+  "es": {
+    "title": "CV público",
+    "description": "CV público y sin datos sensibles de Luis Alberto Dávalos, AI Product Manager.",
+    "alternate": "/en/cv/",
+    "back": "Volver al portfolio",
+    "download": "Descargar PDF",
+    "role": "AI Product Manager · Product builder",
+    "summary": "AI Product Manager especializado en convertir necesidades de negocio en productos de IA, automatización y agentes. Combino discovery, estrategia, diseño de flujo y construcción de demos funcionales con foco en clientes, seguridad y aprendizaje.",
+    "experience": "Experiencia",
+    "job": "Cofundador y AI Product Manager",
+    "company": "Datway.ai · Freelance",
+    "dates": "2023–2025",
+    "jobBullets": [
+      "Diseño y entrega de productos de IA de principio a fin, desde requisitos y roadmap hasta demo y documentación.",
+      "Chatbots con TypeScript y Voiceflow; automatizaciones con Make, Zapier y n8n; agentes y pipelines de datos.",
+      "Gestión de clientes y stakeholders, priorización ágil y preparación de soluciones para su evolución y escalado."
+    ],
+    "selected": "Proyectos seleccionados",
+    "projects": [
+      [
+        "PropIA",
+        "Sistema multiagente para buscar, analizar y reportar oportunidades de inversión inmobiliaria según los criterios del usuario."
+      ],
+      [
+        "Onchain Agent",
+        "Laboratorio de reinforcement learning con Gymnasium, RecurrentPPO, tres estrategias y evaluación comparativa."
+      ],
+      [
+        "Golfy.ai",
+        "Producto móvil para organizar partidas, registrar score por voz y activar comunidad de club."
+      ],
+      [
+        "FocusFlow",
+        "Extensión Chrome con Pomodoro, bloqueo de distracciones y matriz de Eisenhower."
+      ]
+    ],
+    "skills": "Competencias",
+    "skillGroups": [
+      [
+        "Producto",
+        "Discovery, roadmaps, priorización, requisitos, prototipado, documentación, stakeholders"
+      ],
+      [
+        "IA y agentes",
+        "CrewAI, LangChain, LangFlow, OpenAI, Claude, Hugging Face, Pinecone, MCP"
+      ],
+      [
+        "Automatización",
+        "n8n, Make, Zapier, Voiceflow, Airtable, Notion, Power Apps"
+      ],
+      [
+        "Desarrollo",
+        "TypeScript, JavaScript, Python, Java, SQL, C#, React Native, Expo, Node.js, Supabase"
+      ]
+    ],
+    "education": "Formación y certificaciones",
+    "educationItems": [
+      [
+        "Desarrollo de Aplicaciones Multiplataforma (DAM)",
+        "En curso"
+      ],
+      [
+        "Master en IA e Innovación",
+        "Founderz x Microsoft · 2024–2025"
+      ],
+      [
+        "IA Generativa",
+        "UCAM · 2024"
+      ],
+      [
+        "LLM Foundations",
+        "Product Compass · 2025"
+      ],
+      [
+        "AI Product Management",
+        "Latitude · 2025"
+      ]
+    ],
+    "languages": "Idiomas",
+    "languageCopy": "Español y catalán nativos · Inglés C2",
+    "privacy": "Versión pública: se han eliminado teléfono, dirección y cualquier dato personal no necesario."
+  },
+  "en": {
+    "title": "Public résumé",
+    "description": "Public, privacy-safe résumé for Luis Alberto Dávalos, AI Product Manager.",
+    "alternate": "/cv/",
+    "back": "Back to portfolio",
+    "download": "Download PDF",
+    "role": "AI Product Manager · Product builder",
+    "summary": "AI Product Manager focused on turning business needs into AI, automation and agent products. I combine discovery, strategy, flow design and functional demo building with a strong focus on customers, security and learning.",
+    "experience": "Experience",
+    "job": "Co-founder and AI Product Manager",
+    "company": "Datway.ai · Freelance",
+    "dates": "2023–2025",
+    "jobBullets": [
+      "Designed and delivered AI products end to end, from requirements and roadmap to demo and documentation.",
+      "Built TypeScript and Voiceflow chatbots, Make/Zapier/n8n automation, agents and data pipelines.",
+      "Managed clients and stakeholders, agile prioritisation and preparation for product evolution and scale."
+    ],
+    "selected": "Selected projects",
+    "projects": [
+      [
+        "PropIA",
+        "A multi-agent system for finding, analysing and reporting real-estate opportunities using user-defined criteria."
+      ],
+      [
+        "Onchain Agent",
+        "A reinforcement-learning lab with Gymnasium, RecurrentPPO, three strategies and comparative evaluation."
+      ],
+      [
+        "Golfy.ai",
+        "A mobile product for organising matches, recording voice scores and activating club communities."
+      ],
+      [
+        "FocusFlow",
+        "A Chrome extension with Pomodoro, distraction blocking and an Eisenhower matrix."
+      ]
+    ],
+    "skills": "Skills",
+    "skillGroups": [
+      [
+        "Product",
+        "Discovery, roadmaps, prioritisation, requirements, prototyping, documentation, stakeholders"
+      ],
+      [
+        "AI and agents",
+        "CrewAI, LangChain, LangFlow, OpenAI, Claude, Hugging Face, Pinecone, MCP"
+      ],
+      [
+        "Automation",
+        "n8n, Make, Zapier, Voiceflow, Airtable, Notion, Power Apps"
+      ],
+      [
+        "Development",
+        "TypeScript, JavaScript, Python, Java, SQL, C#, React Native, Expo, Node.js, Supabase"
+      ]
+    ],
+    "education": "Education and certifications",
+    "educationItems": [
+      [
+        "Multiplatform Application Development",
+        "In progress"
+      ],
+      [
+        "Master in AI and Innovation",
+        "Founderz x Microsoft · 2024–2025"
+      ],
+      [
+        "Generative AI",
+        "UCAM · 2024"
+      ],
+      [
+        "LLM Foundations",
+        "Product Compass · 2025"
+      ],
+      [
+        "AI Product Management",
+        "Latitude · 2025"
+      ]
+    ],
+    "languages": "Languages",
+    "languageCopy": "Native Spanish and Catalan · English C2",
+    "privacy": "Public version: phone number, address and all unnecessary personal data have been removed."
+  }
+}

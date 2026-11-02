@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile, ui, type Locale } from "../data/site";
+import cv from "../data/cv.json";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const isSpanish = locale === "es";
+const t = ui[locale];
+const copy = cv[locale];
+---
+
+<BaseLayout locale={locale} title={copy.title} description={copy.description} alternatePath={copy.alternate} hideChrome>
+  <div class="no-print shell flex flex-wrap items-center justify-between gap-3 py-6">
+    <a class="button-secondary" href={t.homePath}><span aria-hidden="true">←</span>{copy.back}</a>
+    <div class="flex gap-2">
+      <a class="button-quiet" href={copy.alternate} hreflang={isSpanish ? "en" : "es"}>{t.otherLang}</a>
+      <a class="button-primary" href={t.cvPath} download>{copy.download}</a>
+    </div>
+  </div>
+
+  <div class="cv-print-wrap shell pb-16">
+    <article class="cv-sheet mx-auto max-w-5xl overflow-hidden rounded-3xl border border-white/12">
+      <header class="cv-header grid gap-8 bg-[#1e293b] p-8 text-[#f4f1e8] sm:p-12 lg:grid-cols-[1fr_auto] lg:items-end">
+        <div>
+          <p class="text-xs font-black uppercase tracking-[0.16em] text-[#bfdbfe]">{copy.role}</p>
+          <h1 class="display-type mt-5 text-6xl font-black leading-[0.82] sm:text-8xl">{profile.fullName}</h1>
+          <p class="mt-7 max-w-3xl text-sm leading-6 text-white/68">{copy.summary}</p>
+        </div>
+        <address class="not-italic text-sm leading-7 text-white/72">
+          <p>{isSpanish ? profile.location : profile.locationEn}</p>
+          <a class="underline decoration-white/25 underline-offset-4" href={`mailto:${profile.email}`}>{profile.email}</a><br />
+          <a class="underline decoration-white/25 underline-offset-4" href={profile.github}>github.com/Kstor10</a>
+        </address>
+      </header>
+
+      <div class="cv-body grid gap-12 p-8 sm:p-12 lg:grid-cols-[1.2fr_0.8fr]">
+        <div class="space-y-12">
+          <section>
+            <h2 class="border-b border-black/15 pb-3 text-xs font-black uppercase tracking-[0.16em]">{copy.experience}</h2>
+            <div class="mt-5 grid gap-3 sm:grid-cols-[1fr_auto]">
+              <div>
+                <h3 class="text-xl font-extrabold">{copy.job}</h3>
+                <p class="mt-1 text-sm font-semibold text-black/55">{copy.company}</p>
+              </div>
+              <p class="text-sm font-bold text-black/55">{copy.dates}</p>
+            </div>
+            <ul class="mt-5 grid gap-2 text-sm leading-6 text-black/68">
+              {copy.jobBullets.map((item) => <li class="flex gap-3"><span aria-hidden="true">—</span>{item}</li>)}
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="border-b border-black/15 pb-3 text-xs font-black uppercase tracking-[0.16em]">{copy.selected}</h2>
+            <div class="mt-5 grid gap-5">
+              {copy.projects.map(([name, body]) => (
+                <article>
+                  <h3 class="font-extrabold">{name}</h3>
+                  <p class="mt-1 text-sm leading-6 text-black/65">{body}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <h2 class="border-b border-black/15 pb-3 text-xs font-black uppercase tracking-[0.16em]">{copy.skills}</h2>
+            <div class="mt-5 grid gap-4 sm:grid-cols-2">
+              {copy.skillGroups.map(([name, body]) => (
+                <article>
+                  <h3 class="text-sm font-extrabold">{name}</h3>
+                  <p class="mt-1 text-xs leading-5 text-black/62">{body}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        </div>
+
+        <aside class="space-y-10">
+          <section>
+            <h2 class="border-b border-black/15 pb-3 text-xs font-black uppercase tracking-[0.16em]">{copy.education}</h2>
+            <div class="mt-5 grid gap-5">
+              {copy.educationItems.map(([name, source]) => (
+                <article>
+                  <h3 class="text-sm font-extrabold leading-5">{name}</h3>
+                  <p class="mt-1 text-xs leading-5 text-black/55">{source}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+          <section>
+            <h2 class="border-b border-black/15 pb-3 text-xs font-black uppercase tracking-[0.16em]">{copy.languages}</h2>
+            <p class="mt-5 text-sm leading-6 text-black/65">{copy.languageCopy}</p>
+          </section>
+          <p class="rounded-xl bg-[#e9f7ad] p-4 text-xs leading-5 text-black/65">{copy.privacy}</p>
+        </aside>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

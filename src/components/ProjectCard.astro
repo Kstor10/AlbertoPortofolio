@@ -1,0 +1,31 @@
+---
+import type { CollectionEntry } from "astro:content";
+import type { Locale } from "../data/site";
+import { imageDimensions } from "../lib/images";
+interface Props { project: CollectionEntry<"projects">; locale: Locale; index: number }
+const { project, locale, index } = Astro.props;
+const content = project.data[locale];
+const href = locale === "es" ? `/proyectos/${project.id}/` : `/en/projects/${project.id}/`;
+const dimensions = await imageDimensions(project.data.cover);
+const alt = content.gallery.find((shot) => shot.src === project.data.cover)?.alt ?? content.title;
+const status = {
+  es: { functional: "Demo funcional", prototype: "Prototipo técnico", academic: "Proyecto académico" },
+  en: { functional: "Functional demo", prototype: "Technical prototype", academic: "Academic project" },
+}[locale][project.data.status];
+---
+<article class:list={["work-item", `accent-${project.data.accent}`, { "work-item-featured": index === 0 }]}>
+  <a href={href} class="work-link">
+    <div class="work-image"><img src={project.data.cover} alt={alt} {...dimensions} loading="lazy" decoding="async" /></div>
+    <div class="work-meta"><span>{content.eyebrow}</span><span>{status} · {project.data.year}</span></div>
+    <div class="work-title"><h3>{content.title}</h3><span aria-hidden="true">↗</span></div>
+    <p>{content.summary}</p>
+  </a>
+  <details class="project-tech">
+    <summary aria-label={locale === "es" ? `Ver tecnologías de ${content.title}` : `View technologies for ${content.title}`}>
+      {locale === "es" ? "Ver tecnologías" : "View technologies"}
+    </summary>
+    <ul aria-label={locale === "es" ? `Tecnologías de ${content.title}` : `${content.title} technologies`}>
+      {content.stack.map((item) => <li>{item}</li>)}
+    </ul>
+  </details>
+</article>

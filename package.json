@@ -1,0 +1,31 @@
+{
+  "name": "portfolio-alberto-davalos",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "verify": "node scripts/check-site.mjs",
+    "local": "node scripts/local.mjs",
+    "local:build": "node scripts/local.mjs build"
+  },
+  "dependencies": {
+    "@fontsource-variable/manrope": "^5.3.0",
+    "@fontsource-variable/newsreader": "^5.3.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "7.4.4",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@types/node": "^24.19.2",
+    "sharp": "^0.35.5",
+    "typescript": "^5.9.3"
+  }
+}

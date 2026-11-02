@@ -1,0 +1,45 @@
+---
+import "../styles/global.css";
+import { profile, ui, type Locale } from "../data/site";
+interface Props { locale: Locale; title: string; description: string; image?: string; alternatePath: string; hideChrome?: boolean }
+const { locale, title, description, image, alternatePath, hideChrome = false } = Astro.props;
+const t = ui[locale];
+const es = locale === "es";
+const pageTitle = title === profile.name ? title : `${title} — ${profile.name}`;
+---
+<!doctype html>
+<html lang={locale}>
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} /><meta name="description" content={description} />
+  <meta name="theme-color" content="#0f172a" />
+  <meta property="og:type" content="website" /><meta property="og:title" content={pageTitle} /><meta property="og:description" content={description} />
+  {image && <meta property="og:image" content={image} />}
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  {Astro.site && <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />}
+  {Astro.site && <link rel="alternate" hreflang={locale} href={new URL(Astro.url.pathname, Astro.site)} />}
+  {Astro.site && <link rel="alternate" hreflang={es ? "en" : "es"} href={new URL(alternatePath, Astro.site)} />}
+  <title>{pageTitle}</title>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">{t.skip}</a>
+  {!hideChrome && <header class="site-header no-print"><div class="shell header-inner">
+    <a class="brand" href={t.homePath} aria-label={`${profile.name} — ${es ? "Inicio" : "Home"}`}>Alberto Dávalos<span>.</span></a>
+    <nav class="desktop-nav" aria-label={t.navLabel}>
+      <a href={`${t.homePath}#proyectos`}>{t.projectsLabel}</a><a href={`${t.homePath}#perfil`}>{t.aboutLabel}</a><a href={`${t.homePath}#formacion`}>{t.educationLabel}</a>
+      <a href={t.cvPath} download>{t.cvLabel}</a><a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
+    </nav>
+    <div class="header-actions"><a class="language-link" href={alternatePath} lang={es ? "en" : "es"} hreflang={es ? "en" : "es"}>{t.otherLang}</a>
+      <details class="mobile-menu"><summary>{es ? "Menú" : "Menu"}</summary><nav aria-label={t.navLabel}>
+        <a href={`${t.homePath}#proyectos`}>{t.projectsLabel}</a><a href={`${t.homePath}#perfil`}>{t.aboutLabel}</a><a href={`${t.homePath}#formacion`}>{t.educationLabel}</a>
+        <a href={t.cvPath} download>{t.cvLabel}</a><a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
+      </nav></details>
+    </div>
+  </div></header>}
+  <main id="contenido"><slot /></main>
+  {!hideChrome && <footer class="site-footer no-print"><div class="shell footer-inner">
+    <div><h2>{es ? "Contacto" : "Contact"}</h2><p>{es ? "Puedes escribirme o encontrarme en GitHub." : "You can reach me by email or find me on GitHub."}</p>
+      <a class="footer-email" href={`mailto:${profile.email}`}>{profile.email}</a></div>
+    <div class="footer-links"><a href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a><a href={t.cvPath} download>{t.cvLabel} ↗</a><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a></div>
+  </div><div class="shell footer-bottom"><span>© {new Date().getFullYear()} Alberto Dávalos</span><span>{es ? profile.location : profile.locationEn}</span></div></footer>}
+</body></html>

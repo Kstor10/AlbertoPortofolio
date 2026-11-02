@@ -1,0 +1,10 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout locale="es" title="Página no encontrada" description="La página solicitada no existe." alternatePath="/en/">
+  <section class="shell" style="padding-block: 8rem; min-height: 60vh;">
+    <h1 class="display-type" style="font-size: clamp(3rem, 8vw, 6rem); line-height: 1;">Página no encontrada.</h1>
+    <p style="margin-top: 1.5rem;">El enlace puede haber cambiado. Puedes volver a la página principal.</p>
+    <a class="back-link" style="margin-top: 2rem;" href="/">← Volver al inicio</a>
+  </section>
+</BaseLayout>
