@@ -82,6 +82,7 @@ Todas las rutas siguientes son relativas a la carpeta del proyecto.
 | `public/cv-luis-alberto-davalos-en.pdf` | CV descargable inglés, una página A4. |
 | `public/favicon.svg` | Icono AD del sitio. |
 | `public/robots.txt` | Permite rastrear la web cuando esté publicada. |
+| `vercel.json` | Fija Astro, la instalación reproducible y la carpeta estática `dist` para Vercel. |
 | `scripts/local.mjs` | Preparación y ejecución local desde una copia temporal verificada. |
 | `scripts/check-site.mjs` | Comprueba enlaces, anclas, imágenes, idiomas, títulos y PDF de la compilación. |
 | `scripts/generate-cv.py` | Herramienta editorial opcional para regenerar los PDF desde los datos públicos. |
