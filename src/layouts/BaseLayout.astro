@@ -41,5 +41,5 @@ const pageTitle = title === profile.name ? title : `${title} — ${profile.name}
     <div><h2>{es ? "Contacto" : "Contact"}</h2><p>{es ? "Puedes escribirme o encontrarme en GitHub." : "You can reach me by email or find me on GitHub."}</p>
       <a class="footer-email" href={`mailto:${profile.email}`}>{profile.email}</a></div>
     <div class="footer-links"><a href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a><a href={t.cvPath} download>{t.cvLabel} ↗</a><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a></div>
-  </div><div class="shell footer-bottom"><span>© {new Date().getFullYear()} Alberto Dávalos</span><span>{es ? profile.location : profile.locationEn}</span></div></footer>}
+  </div><div class="shell footer-bottom"><span>© {new Date().getFullYear()} Alberto Dávalos</span><a href={es ? "/privacidad/" : "/en/privacy/"}>{es ? "Privacidad y cookies" : "Privacy and cookies"}</a><span>{es ? profile.location : profile.locationEn}</span></div></footer>}
 </body></html>

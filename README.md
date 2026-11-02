@@ -55,7 +55,7 @@ Todas las rutas siguientes son relativas a la carpeta del proyecto.
 | `src/content.config.ts` | Valida los campos obligatorios de los proyectos antes de compilar. |
 | `src/data/profile.json` | Nombre, rol implícito en el contenido, ubicación general y enlaces profesionales. Nunca añadir teléfono ni dirección. |
 | `src/data/site.ts` | Textos compartidos de navegación, contacto y pie en ES/EN. |
-| `src/data/cv.json` | Contenido público del CV en ambos idiomas; fuente común de la página y los PDF. |
+| `src/data/cv.json` | Contenido público del CV web en ambos idiomas y fuente de los PDF estándar regenerables. |
 | `src/styles/global.css` | Colores, tipografía, botones, adaptación móvil, foco de teclado e impresión. |
 | `src/layouts/BaseLayout.astro` | Estructura HTML, metadatos, navegación, selector de idioma y pie. |
 | `src/components/HomePage.astro` | Presentación profesional, proyectos destacados, experiencia y perfil. |
@@ -69,6 +69,8 @@ Todas las rutas siguientes son relativas a la carpeta del proyecto.
 | `src/pages/en/projects/[id].astro` | Genera la página EN equivalente. |
 | `src/pages/cv/index.astro` | CV español `/cv/`. |
 | `src/pages/en/cv/index.astro` | CV inglés `/en/cv/`. |
+| `src/pages/privacidad/index.astro` | Aviso de privacidad español `/privacidad/`. |
+| `src/pages/en/privacy/index.astro` | Aviso de privacidad inglés `/en/privacy/`. |
 | `src/pages/404.astro` | Página de enlace inexistente. |
 | `src/content/projects/propia.md` | Caso PropIA: seis capturas seleccionadas. |
 | `src/content/projects/onchain-agent.md` | Caso Onchain Agent: ocho capturas y límites de la evaluación offline. |
@@ -76,7 +78,7 @@ Todas las rutas siguientes son relativas a la carpeta del proyecto.
 | `src/content/projects/planificador-turnos.md` | Caso académico de turnos: cuatro capturas. |
 | `src/content/projects/focusflow.md` | Caso FocusFlow: cuatro capturas. |
 | `public/images/projects/` | Las 28 imágenes WebP publicadas, organizadas por proyecto. |
-| `public/cv-luis-alberto-davalos-es.pdf` | CV descargable español, una página A4. |
+| `public/cv-luis-alberto-davalos-es.pdf` | CV público español orientado a desarrollo de aplicaciones e IA, dos páginas A4. |
 | `public/cv-luis-alberto-davalos-en.pdf` | CV descargable inglés, una página A4. |
 | `public/favicon.svg` | Icono AD del sitio. |
 | `public/robots.txt` | Permite rastrear la web cuando esté publicada. |
@@ -117,12 +119,12 @@ Las imágenes se añaden a `public/images/projects/`. Su ruta pública empieza p
 - **Tipografías alojadas en el propio sitio y menú HTML nativo:** evitan peticiones a servidores externos y JavaScript de navegación. El menú, los enlaces y el foco siguen funcionando con teclado.
 - **Tecnologías desplegables:** cada tarjeta muestra su stack con el elemento HTML nativo `details`. Se puede abrir con ratón o teclado y no necesita JavaScript ni servicios externos.
 - **Trayectoria personal:** la sección «Sobre mí» resume la carta de motivación y el CV aportados, incluida la experiencia previa en hostelería, consultoría y desarrollo de negocio. Los textos están en `src/components/HomePage.astro`, en español e inglés; no se incluyen el teléfono ni la dirección de los documentos originales.
-- **CV público separado del original:** la web y los PDF se generan desde los datos revisados. El archivo original con datos personales no entra en `public/` ni en el repositorio.
+- **CV público separado del original:** los PDF publicados son copias revisadas. La versión española de dos páginas elimina el teléfono y conserva solo los datos autorizados; el archivo original no entra en `public/` ni en el repositorio.
 - **Sin dominio inventado:** los enlaces de idioma de navegación funcionan ya. Los metadatos absolutos de idiomas y URL canónica se activarán al configurar el dominio real en `astro.config.mjs`, durante la fase 5.
 
 ## Actualizar el CV
 
-Edita `src/data/cv.json` y, si cambia el contacto, `src/data/profile.json`. Los PDF incluidos son archivos terminados; Python no es necesario para abrir, compilar ni desplegar la web.
+Edita `src/data/cv.json` y, si cambia el contacto, `src/data/profile.json`. Los PDF incluidos son archivos terminados; Python no es necesario para abrir, compilar ni desplegar la web. El PDF español publicado es una copia revisada del CV aportado para uso público; no debe sustituirse por el original privado.
 
 Para regenerarlos con Python, ReportLab y pypdf instalados:
 
@@ -130,7 +132,7 @@ Para regenerarlos con Python, ReportLab y pypdf instalados:
 python scripts/generate-cv.py
 ```
 
-La herramienta necesita ReportLab y pypdf y utiliza Segoe UI de Windows. Comprueba que cada PDF tiene una página, contiene el email público y no incluye un teléfono español. Revisa visualmente ambos archivos después de cambiar el contenido. La comprobación automatizada no sustituye una revisión de privacidad.
+La herramienta genera las versiones estándar desde `src/data/cv.json`; no reconstruye la versión española importada de dos páginas. Necesita ReportLab y pypdf y utiliza Segoe UI de Windows. Comprueba que cada PDF contiene el email público y no incluye un teléfono español. Revisa visualmente ambos archivos después de cambiar el contenido. La comprobación automatizada no sustituye una revisión de privacidad.
 
 ## Privacidad y publicación
 

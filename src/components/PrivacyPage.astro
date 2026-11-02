@@ -1,0 +1,115 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile, type Locale } from "../data/site";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const es = locale === "es";
+const copy = es ? {
+  title: "Privacidad y cookies",
+  description: "Información de privacidad y cookies del portfolio de Alberto Dávalos.",
+  alternate: "/en/privacy/",
+  lead: "Qué datos técnicos pueden tratarse al visitar este portfolio y qué ocurre si decides escribirme.",
+  updated: "Última actualización: 2 de noviembre de 2026",
+  sections: [
+    {
+      title: "Responsable y contacto",
+      paragraphs: [
+        `El responsable de este sitio es ${profile.fullName}, con ubicación general en ${profile.location}. Para cualquier consulta sobre privacidad puedes escribir a ${profile.email}.`,
+      ],
+    },
+    {
+      title: "Datos tratados",
+      paragraphs: [
+        "El portfolio no incluye cuentas, comentarios, formularios, base de datos ni analítica. El código del sitio no instala cookies ni guarda información en localStorage o sessionStorage.",
+        "El alojamiento se presta mediante Vercel. Como parte de la entrega y protección del sitio, Vercel puede tratar registros técnicos como la dirección IP, ubicación aproximada derivada de la IP, navegador, dispositivo, fecha y hora de la solicitud, página de referencia e información de diagnóstico.",
+        "Si utilizas el enlace de correo, tu aplicación de email enviará a Alberto la dirección, el contenido y cualquier otro dato que decidas incluir en el mensaje.",
+      ],
+    },
+    {
+      title: "Finalidad y conservación",
+      paragraphs: [
+        "Los datos técnicos se utilizan para servir el sitio, mantener su seguridad y diagnosticar fallos. Los mensajes se utilizan únicamente para responder y continuar la conversación solicitada.",
+        "Vercel conserva la información técnica conforme a sus propias condiciones y políticas. Los correos se conservan solo durante el tiempo necesario para atender la comunicación y sus posibles continuaciones.",
+      ],
+    },
+    {
+      title: "Cookies",
+      paragraphs: [
+        "Este portfolio no utiliza cookies propias ni de analítica, publicidad o personalización. Por ese motivo no se muestra un banner de consentimiento. Si en el futuro se incorpora una tecnología que requiera cookies no esenciales, esta información y el mecanismo de consentimiento se actualizarán antes de activarla.",
+      ],
+    },
+    {
+      title: "Enlaces externos y derechos",
+      paragraphs: [
+        "Los enlaces a GitHub, LinkedIn y otros sitios abren servicios de terceros sujetos a sus propias políticas. Puedes solicitar información, acceso, rectificación o supresión de los datos enviados por email escribiendo a la dirección de contacto. También puedes presentar una reclamación ante la Agencia Española de Protección de Datos.",
+      ],
+    },
+  ],
+} : {
+  title: "Privacy and cookies",
+  description: "Privacy and cookie information for Alberto Dávalos’s portfolio.",
+  alternate: "/privacidad/",
+  lead: "What technical data may be processed when visiting this portfolio and what happens if you choose to get in touch.",
+  updated: "Last updated: 2 November 2026",
+  sections: [
+    {
+      title: "Controller and contact",
+      paragraphs: [
+        `This site is managed by ${profile.fullName}, based generally in ${profile.locationEn}. For privacy questions, contact ${profile.email}.`,
+      ],
+    },
+    {
+      title: "Data processed",
+      paragraphs: [
+        "The portfolio has no accounts, comments, forms, database or analytics. Its code does not set cookies or store information in localStorage or sessionStorage.",
+        "The site is hosted by Vercel. To deliver and protect it, Vercel may process technical logs such as IP address, approximate location derived from the IP address, browser, device, request date and time, referrer and diagnostic information.",
+        "If you use the email link, your email application will send Alberto your address, message content and any other information you choose to include.",
+      ],
+    },
+    {
+      title: "Purpose and retention",
+      paragraphs: [
+        "Technical data is used to deliver the site, maintain its security and diagnose failures. Messages are used only to reply and continue the conversation you requested.",
+        "Vercel retains technical information under its own terms and policies. Emails are kept only as long as needed to handle the communication and any related follow-up.",
+      ],
+    },
+    {
+      title: "Cookies",
+      paragraphs: [
+        "This portfolio does not use first-party, analytics, advertising or personalisation cookies. It therefore does not display a consent banner. If a future feature requires non-essential cookies, this notice and the consent mechanism will be updated before that feature is enabled.",
+      ],
+    },
+    {
+      title: "External links and rights",
+      paragraphs: [
+        "Links to GitHub, LinkedIn and other sites open third-party services governed by their own policies. You may request information, access, correction or deletion of data sent by email by contacting the address above. You may also lodge a complaint with the Spanish Data Protection Agency.",
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout locale={locale} title={copy.title} description={copy.description} alternatePath={copy.alternate}>
+  <article class="legal-page shell">
+    <header class="legal-header">
+      <h1>{copy.title}</h1>
+      <p>{copy.lead}</p>
+      <small>{copy.updated}</small>
+    </header>
+    <div class="legal-sections">
+      {copy.sections.map((section) => (
+        <section>
+          <h2>{section.title}</h2>
+          <div>{section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div>
+        </section>
+      ))}
+    </div>
+    <p class="legal-sources">
+      {es ? "Referencias: " : "References: "}
+      <a href="https://vercel.com/legal/privacy-notice" target="_blank" rel="noreferrer">Vercel Privacy Notice</a>
+      <span aria-hidden="true"> · </span>
+      <a href="https://www.aepd.es/recurso-multimedia/guia-sobre-el-uso-de-las-cookies" target="_blank" rel="noreferrer">{es ? "Guía de cookies de la AEPD" : "AEPD cookie guide"}</a>
+    </p>
+  </article>
+</BaseLayout>
