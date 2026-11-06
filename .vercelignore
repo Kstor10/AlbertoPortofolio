@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.astro/
+.vercel/
+
+.env
+.env.*
+
+fase-1/
+fase-2/
+fase-3/
+fase-4/
+.diagnostic-astro/
+
+.lighthouseci/
+lighthouse-report.*
