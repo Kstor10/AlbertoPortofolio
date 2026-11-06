@@ -2,7 +2,7 @@
 order: 3
 year: "2026"
 status: functional
-cover: /images/projects/the-looper/the-looper-07-telemetro-gps.webp
+cover: /images/projects/the-looper/the-looper-v2-01-overview.webp
 accent: lime
 es:
   title: The Looper
@@ -30,24 +30,30 @@ es:
     - Diseño del modo offline y entrada por voz
     - Implementación, pruebas y preparación de la demo
   gallery:
-    - src: /images/projects/the-looper/the-looper-01-inicio.webp
-      alt: "Inicio de The Looper con el Match Board de un club ficticio"
-      caption: "El club y la siguiente acción aparecen nada más entrar."
-    - src: /images/projects/the-looper/the-looper-02-scorecard.webp
-      alt: "Scorecard de The Looper durante una ronda de demostración"
-      caption: "Tarjeta viva, progreso por hoyo y entrada rápida."
-    - src: /images/projects/the-looper/the-looper-03-hoyo-19.webp
-      alt: "Feed Hoyo 19 con actividad social de jugadores ficticios"
-      caption: "La ronda continúa en el feed social del club."
-    - src: /images/projects/the-looper/the-looper-05-perfil-comunidad.webp
-      alt: "Perfil de jugador con hándicap, experiencia y rendimiento histórico"
-      caption: "Identidad, progreso y actividad en una vista."
-    - src: /images/projects/the-looper/the-looper-07-telemetro-gps.webp
-      alt: "Telémetro GPS de demostración con distancias a green"
-      caption: "Ayuda en campo con distancias ficticias claramente señaladas."
-    - src: /images/projects/the-looper/the-looper-08-score-voz.webp
-      alt: "Interfaz Voice Scorecard para dictar cuatro golpes y dos putts"
-      caption: "Interfaz de voz en modo demo; entrada táctil como alternativa."
+    - src: /images/projects/the-looper/the-looper-v2-01-overview.webp
+      alt: "The Looper en dos móviles, con las pantallas de salidas y scorecard"
+      caption: "El recorrido completo: preparar la salida y jugar la ronda."
+    - src: /images/projects/the-looper/the-looper-v2-02-inicio.webp
+      alt: "Pantalla Inicio de The Looper en un móvil Google Pixel"
+      caption: "Inicio reúne partidas abiertas, luz disponible y la ronda activa."
+    - src: /images/projects/the-looper/the-looper-v2-03-jugar.webp
+      alt: "Pestaña Jugar de The Looper con scorecard, GPS y dictado"
+      caption: "Entrada táctil o por voz, acceso al GPS y resolución de conflictos."
+    - src: /images/projects/the-looper/the-looper-v2-04-hoyo-19.webp
+      alt: "Pestaña Hoyo 19 de The Looper con una publicación del club"
+      caption: "Clasificación, publicaciones, reacciones y comentarios después de la ronda."
+    - src: /images/projects/the-looper/the-looper-v2-05-perfil.webp
+      alt: "Perfil de The Looper con hándicap, progreso y rendimiento"
+      caption: "Perfil, hándicap, historial y acceso directo a la ronda en curso."
+    - src: /images/projects/the-looper/the-looper-v2-06-amigos.webp
+      alt: "Vista Amigos de The Looper con jugadores del club"
+      caption: "La red del club se organiza entre amigos, solicitudes y búsqueda."
+    - src: /images/projects/the-looper/the-looper-v2-07-resumen.webp
+      alt: "Resumen de una ronda firmada en The Looper"
+      caption: "Resultado final, estadísticas y distribución de golpes en una sola vista."
+    - src: /images/projects/the-looper/the-looper-v2-08-modo-claro.webp
+      alt: "Pantalla Inicio de The Looper en modo claro"
+      caption: "La interfaz también mantiene su jerarquía y legibilidad en modo claro."
 en:
   title: The Looper
   eyebrow: Mobile product · social golf
@@ -74,24 +80,30 @@ en:
     - Offline mode and voice-input design
     - Implementation, testing and demo preparation
   gallery:
-    - src: /images/projects/the-looper/the-looper-01-inicio.webp
-      alt: "The Looper home screen with a fictional club Match Board"
-      caption: "The club and next action are visible as soon as the user enters."
-    - src: /images/projects/the-looper/the-looper-02-scorecard.webp
-      alt: "The Looper scorecard during a demonstration round"
-      caption: "Live scorecard, hole progress and quick input."
-    - src: /images/projects/the-looper/the-looper-03-hoyo-19.webp
-      alt: "Hoyo 19 feed with social activity from fictional players"
-      caption: "The round continues in the club's social feed."
-    - src: /images/projects/the-looper/the-looper-05-perfil-comunidad.webp
-      alt: "Player profile with handicap, experience and historical performance"
-      caption: "Identity, progress and activity in one view."
-    - src: /images/projects/the-looper/the-looper-07-telemetro-gps.webp
-      alt: "Demonstration GPS rangefinder with distances to the green"
-      caption: "On-course help with clearly labelled synthetic distances."
-    - src: /images/projects/the-looper/the-looper-08-score-voz.webp
-      alt: "Voice Scorecard interface for dictating four shots and two putts"
-      caption: "Voice interface in demo mode, with touch input as an alternative."
+    - src: /images/projects/the-looper/the-looper-v2-01-overview.webp
+      alt: "The Looper shown on two phones with tee-time and scorecard screens"
+      caption: "The complete journey: prepare the tee time and play the round."
+    - src: /images/projects/the-looper/the-looper-v2-02-inicio.webp
+      alt: "The Looper Home screen presented on a Google Pixel style phone"
+      caption: "Home brings together open tee times, available daylight and the active round."
+    - src: /images/projects/the-looper/the-looper-v2-03-jugar.webp
+      alt: "The Looper Play tab with scorecard, GPS and voice input"
+      caption: "Touch or voice input, GPS access and conflict resolution."
+    - src: /images/projects/the-looper/the-looper-v2-04-hoyo-19.webp
+      alt: "The Looper Hoyo 19 tab showing a club post"
+      caption: "Leaderboard, posts, reactions and comments after the round."
+    - src: /images/projects/the-looper/the-looper-v2-05-perfil.webp
+      alt: "The Looper profile with handicap, progress and performance"
+      caption: "Profile, handicap, history and direct access to the active round."
+    - src: /images/projects/the-looper/the-looper-v2-06-amigos.webp
+      alt: "The Looper Friends view with club players"
+      caption: "The club network is organised across friends, requests and search."
+    - src: /images/projects/the-looper/the-looper-v2-07-resumen.webp
+      alt: "A signed round summary in The Looper"
+      caption: "Final result, statistics and shot distribution in one view."
+    - src: /images/projects/the-looper/the-looper-v2-08-modo-claro.webp
+      alt: "The Looper Home screen in light mode"
+      caption: "The interface preserves its hierarchy and legibility in light mode."
 ---
 
 The Looper conecta utilidad en campo y comunidad en una única experiencia móvil.

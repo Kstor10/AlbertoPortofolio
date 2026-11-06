@@ -221,14 +221,17 @@ body { background: var(--home-ground); }
 .site-footer { background: #091a2c; }
 .footer-inner h2 { font-family: "Oswald Variable", sans-serif; font-weight: 650; text-transform: uppercase; }
 
-.home-hero { display: flex; justify-content: center; align-items: center; min-height: min(42rem, calc(100svh - 74px)); padding-block: 5rem 6rem; text-align: center; }
+.home-hero { position: relative; isolation: isolate; display: flex; justify-content: center; align-items: center; min-height: min(42rem, calc(100svh - 74px)); padding-block: 5rem 6rem; overflow: hidden; text-align: center; }
+.home-hero::before { position: absolute; z-index: -2; inset: 1.5rem 0; background: url("/images/hero-workspace-v2.webp") center / cover no-repeat; content: ""; filter: saturate(.86) contrast(1.08) brightness(1.03); opacity: .9; mask-image: linear-gradient(to bottom, transparent 0, #000 13%, #000 87%, transparent 100%); }
+.home-hero::after { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgba(14, 34, 56, .62), rgba(14, 34, 56, .54) 52%, rgba(14, 34, 56, .22)), linear-gradient(180deg, rgba(14, 34, 56, .06), rgba(14, 34, 56, .22)); content: ""; }
 .home-hero-copy { width: 100%; max-width: 48rem; }
 .home-hero h1, .home-section-heading h2, .home-project h3, .home-education-group h3 { font-family: "Oswald Variable", sans-serif; font-weight: 680; line-height: 1; letter-spacing: -.02em; text-transform: uppercase; }
 .home-hero h1 { margin: 0; font-size: clamp(4.2rem, 7.5vw, 6rem); }
-.home-hero h1 span:not(.home-dot) { display: inline-block; margin-top: .08em; color: #ccdfed; }
+.home-hero h1 span:not(.home-dot) { display: inline-block; margin-top: .18em; color: #ccdfed; }
 .home-hero h1 .home-dot { color: var(--home-accent); }
 .home-role { margin: 1.65rem 0 0; color: var(--home-accent); font-family: "Oswald Variable", sans-serif; font-size: clamp(1.25rem, 2vw, 1.6rem); font-weight: 600; text-transform: uppercase; }
-.home-intro { max-width: 38rem; margin: 1.2rem auto 0; color: var(--home-muted); font-size: clamp(1rem, 1.25vw, 1.1rem); line-height: 1.8; }
+.home-hero-lower { position: relative; inset-block-start: 5.75rem; }
+.home-intro { max-width: 38rem; margin: 1.2rem auto 0; color: var(--home-muted); font-size: clamp(1rem, 1.25vw, 1.1rem); font-weight: 650; line-height: 1.8; }
 .home-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem 2rem; margin-top: 2rem; }
 .home-button { display: inline-flex; min-height: 3rem; align-items: center; justify-content: center; padding: .75rem 1.2rem; border: 1px solid var(--home-accent); color: #fcece4; font-size: .8rem; font-weight: 800; letter-spacing: .025em; text-decoration: none; text-transform: uppercase; }
 .home-button:hover { background: #a94123; color: #fff; }
@@ -238,6 +241,7 @@ body { background: var(--home-ground); }
 .home-section-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: end; padding-top: 2rem; border-top: 1px solid #496078; }
 .home-section-heading h2 { margin: 0; font-size: clamp(2.8rem, 4.5vw, 4rem); text-wrap: balance; }
 .home-section-heading > p { max-width: 34rem; margin: 0; color: var(--home-muted); font-size: .96rem; line-height: 1.75; }
+.home-about .home-section-heading { grid-template-columns: 1fr; }
 .home-project-list { display: grid; gap: 2.5rem; margin-top: 3rem; }
 .home-project { display: grid; grid-template-columns: 1.1fr .9fr; background: var(--home-panel); border: 1px solid #496078; }
 .home-project-image { align-self: start; min-width: 0; padding: 1rem; }
@@ -300,7 +304,10 @@ body { background: var(--home-ground); }
 }
 @media (max-width: 767px) {
   .home-section-heading, .home-about-layout, .home-education-group { grid-template-columns: 1fr; }
-  .home-hero { min-height: auto; padding-block: 4rem 4.5rem; }
+  .home-hero { min-height: auto; padding-block: 4rem 10rem; }
+  .home-hero::before { inset-block: .75rem; background-position: 52% center; opacity: .82; }
+  .home-hero::after { background: linear-gradient(90deg, rgba(14, 34, 56, .64), rgba(14, 34, 56, .46)), linear-gradient(180deg, rgba(14, 34, 56, .12), rgba(14, 34, 56, .32)); }
+  .home-hero-lower { inset-block-start: 6.5rem; }
   .home-hero h1 { font-size: clamp(3.75rem, 14vw, 5.5rem); }
   .home-work, .home-about, .home-education { padding-block: 2.5rem 4rem; }
   .home-section-heading { gap: 1rem; }

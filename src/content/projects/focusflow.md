@@ -42,7 +42,7 @@ es:
     - src: /images/projects/focusflow/focusflow-03-bloqueo-activo.webp
       alt: "Pantalla de bloqueo de FocusFlow para el dominio de ejemplo"
       caption: "Durante una sesión activa, el usuario puede volver a sus tareas o utilizar un pase temporal."
-    - src: /images/projects/focusflow/focusflow-04-movil-claro.webp
+    - src: /images/projects/focusflow/focusflow-04-movil-claro-framed.webp
       alt: "Versión web de FocusFlow en móvil con tema claro"
       caption: "La experiencia responsive conserva el temporizador y la matriz; el bloqueo de pestañas requiere la extensión."
 en:
@@ -82,7 +82,7 @@ en:
     - src: /images/projects/focusflow/focusflow-03-bloqueo-activo.webp
       alt: "FocusFlow block page for the example domain"
       caption: "During an active session, the user can return to their tasks or use a temporary pass."
-    - src: /images/projects/focusflow/focusflow-04-movil-claro.webp
+    - src: /images/projects/focusflow/focusflow-04-movil-claro-framed.webp
       alt: "FocusFlow web experience on mobile in the light theme"
       caption: "The responsive experience keeps the timer and matrix; tab blocking requires the extension."
 ---

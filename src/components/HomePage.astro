@@ -17,7 +17,6 @@ const copy = es ? {
   workTitle: "Proyectos seleccionados",
   workIntro: "Proyectos personales y académicos explicados desde el problema hasta la solución, con mi contribución, las decisiones técnicas y capturas de pantalla del producto funcionando.",
   aboutTitle: "Sobre mí",
-  aboutLead: "Curiosidad por la tecnología. Atención a las personas.",
   about: [
     "Mi interés por la tecnología empezó con Bitcoin y blockchain en 2014. Mi trayectoria profesional comenzó en la hostelería, trabajando con equipos internacionales y aprendiendo a escuchar a personas con necesidades muy distintas.",
     "La inteligencia artificial generativa me impulsó a orientar mi carrera hacia la tecnología. Cofundé Datway.ai y trabajé en proyectos de IA y automatización para empresas, traduciendo necesidades reales en herramientas útiles y decisiones de producto concretas.",
@@ -43,7 +42,6 @@ const copy = es ? {
   workTitle: "Selected projects",
   workIntro: "Personal and academic projects explained from problem to solution, including my contribution, technical decisions and screenshots of the product in use.",
   aboutTitle: "About me",
-  aboutLead: "Curiosity for technology. Attention to people.",
   about: [
     "My interest in technology began with Bitcoin and blockchain in 2014. I started my career in hospitality, working with international teams and learning to listen to people with very different needs.",
     "Generative AI inspired me to move into technology. I co-founded Datway.ai and worked on AI and automation projects for businesses, translating real needs into useful tools and concrete product decisions.",
@@ -68,8 +66,10 @@ const copy = es ? {
     <div class="home-hero-copy">
       <h1 id="home-title">Alberto<br /><span>Dávalos</span><span class="home-dot">.</span></h1>
       <p class="home-role">{copy.role}</p>
-      <p class="home-intro">{copy.intro}</p>
-      <div class="home-actions"><a class="home-button" href="#proyectos">{copy.seeWork}</a><a class="home-text-link" href="#perfil">{copy.seeProfile}</a></div>
+      <div class="home-hero-lower">
+        <p class="home-intro">{copy.intro}</p>
+        <div class="home-actions"><a class="home-button" href="#proyectos">{copy.seeWork}</a><a class="home-text-link" href="#perfil">{copy.seeProfile}</a></div>
+      </div>
     </div>
   </section>
 
@@ -79,7 +79,7 @@ const copy = es ? {
   </section>
 
   <section id="perfil" class="home-about shell" aria-labelledby="about-title">
-    <div class="home-section-heading"><h2 id="about-title">{copy.aboutTitle}</h2><p>{copy.aboutLead}</p></div>
+    <div class="home-section-heading"><h2 id="about-title">{copy.aboutTitle}</h2></div>
     <div class="home-about-layout">
       <div class="home-about-story">{copy.about.map((paragraph) => <p>{paragraph}</p>)}</div>
       <div class="home-journey"><h3>{copy.journey}</h3>
