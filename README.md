@@ -74,7 +74,7 @@ Todas las rutas siguientes son relativas a la carpeta del proyecto.
 | `src/pages/404.astro` | Página de enlace inexistente. |
 | `src/content/projects/propia.md` | Caso PropIA: seis capturas seleccionadas. |
 | `src/content/projects/onchain-agent.md` | Caso Onchain Agent: ocho capturas y límites de la evaluación offline. |
-| `src/content/projects/golfy-ai.md` | Caso Golfy.ai: seis capturas seleccionadas. |
+| `src/content/projects/the-looper.md` | Caso The Looper: seis capturas seleccionadas. |
 | `src/content/projects/planificador-turnos.md` | Caso académico de turnos: cuatro capturas. |
 | `src/content/projects/focusflow.md` | Caso FocusFlow: cuatro capturas. |
 | `public/images/projects/` | Las 28 imágenes WebP publicadas, organizadas por proyecto. |
@@ -90,7 +90,7 @@ Todas las rutas siguientes son relativas a la carpeta del proyecto.
 
 ## Editar un proyecto
 
-Cada proyecto tiene **un único Markdown** con los bloques `es` y `en`. El nombre del archivo determina su URL. Editar `golfy-ai.md` modifica `/proyectos/golfy-ai/` y `/en/projects/golfy-ai/` a la vez.
+Cada proyecto tiene **un único Markdown** con los bloques `es` y `en`. El nombre del archivo determina su URL. Editar `the-looper.md` modifica `/proyectos/the-looper/` y `/en/projects/the-looper/` a la vez.
 
 El bloque situado entre `---` contiene los campos que usa la página:
 
@@ -137,7 +137,7 @@ La herramienta genera las versiones estándar desde `src/data/cv.json`; no recon
 
 ## Privacidad y publicación
 
-El sitio no usa claves, analítica, formularios con almacenamiento, cookies de seguimiento ni servicios de los proyectos mostrados. Solo sirve sus capturas y explicaciones. Golfy.ai y Onchain Agent siguen sin enlace a sus repositorios privados. PropIA y FocusFlow enlazan a sus repositorios públicos verificados.
+El sitio no usa claves, analítica, formularios con almacenamiento, cookies de seguimiento ni servicios de los proyectos mostrados. Solo sirve sus capturas y explicaciones. The Looper y Onchain Agent siguen sin enlace a sus repositorios privados. PropIA y FocusFlow enlazan a sus repositorios públicos verificados.
 
 `fase-1/`, `fase-2/`, `fase-3/` y los informes de QA locales quedan excluidos de Git. Las capturas finales que sí se distribuirán están únicamente en `public/`. No copies el CV original, bases de datos, `.env`, logs de clientes ni archivos internos a esa carpeta: todo lo que hay en `public/` será descargable.
 

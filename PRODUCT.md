@@ -25,7 +25,7 @@ Presentar a Alberto Dávalos como profesional y mostrar su experiencia y proyect
 
 ## Evidence on Hand
 
-CV y carta de motivación aportados por Alberto; cinco proyectos y 28 capturas seleccionadas en `src/content/projects/` y `public/images/projects/`. Onchain Agent incluye evaluaciones y registros offline. Algunas imágenes adicionales de Golfy.ai y PropIA están en `fase-3/capturas/`. La carta aporta su trayectoria en hostelería y equipos internacionales, su interés por blockchain desde 2014 y su transición hacia IA y desarrollo; no publicar sus datos personales innecesarios.
+CV y carta de motivación aportados por Alberto; cinco proyectos y 28 capturas seleccionadas en `src/content/projects/` y `public/images/projects/`. Onchain Agent incluye evaluaciones y registros offline. Algunas imágenes adicionales de The Looper y PropIA están en `fase-3/capturas/`. La carta aporta su trayectoria en hostelería y equipos internacionales, su interés por blockchain desde 2014 y su transición hacia IA y desarrollo; no publicar sus datos personales innecesarios.
 
 ## Brand Commitments
 

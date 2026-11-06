@@ -225,7 +225,7 @@ body { background: var(--home-ground); }
 .home-hero-copy { width: 100%; max-width: 48rem; }
 .home-hero h1, .home-section-heading h2, .home-project h3, .home-education-group h3 { font-family: "Oswald Variable", sans-serif; font-weight: 680; line-height: 1; letter-spacing: -.02em; text-transform: uppercase; }
 .home-hero h1 { margin: 0; font-size: clamp(4.2rem, 7.5vw, 6rem); }
-.home-hero h1 span:not(.home-dot) { color: #ccdfed; }
+.home-hero h1 span:not(.home-dot) { display: inline-block; margin-top: .08em; color: #ccdfed; }
 .home-hero h1 .home-dot { color: var(--home-accent); }
 .home-role { margin: 1.65rem 0 0; color: var(--home-accent); font-family: "Oswald Variable", sans-serif; font-size: clamp(1.25rem, 2vw, 1.6rem); font-weight: 600; text-transform: uppercase; }
 .home-intro { max-width: 38rem; margin: 1.2rem auto 0; color: var(--home-muted); font-size: clamp(1rem, 1.25vw, 1.1rem); line-height: 1.8; }

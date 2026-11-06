@@ -3,5 +3,17 @@
   "framework": "astro",
   "installCommand": "npm ci",
   "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/proyectos/golfy-ai",
+      "destination": "/proyectos/the-looper/",
+      "permanent": true
+    },
+    {
+      "source": "/en/projects/golfy-ai",
+      "destination": "/en/projects/the-looper/",
+      "permanent": true
+    }
+  ]
 }

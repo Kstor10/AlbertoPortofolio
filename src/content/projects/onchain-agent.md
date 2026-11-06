@@ -7,7 +7,7 @@ accent: cyan
 es:
   title: Onchain Agent
   eyebrow: Reinforcement learning · crypto research
-  summary: "Laboratorio para entrenar, evaluar y comparar tres agentes de trading con Gymnasium y RecurrentPPO."
+  summary: "Proyecto de reinforcement learning (RL) para entrenar, evaluar y comparar tres agentes de trading con Gymnasium y RecurrentPPO."
   problem: "Una estrategia de trading basada en ML no se puede valorar por una gráfica aislada: necesita un entorno reproducible, una recompensa explícita y evaluación comparable."
   solution:
     - "Entorno Gymnasium con estados, acciones, costes y límites de riesgo definidos."
@@ -57,7 +57,7 @@ es:
 en:
   title: Onchain Agent
   eyebrow: Reinforcement learning · crypto research
-  summary: "A lab for training, evaluating and comparing three trading agents with Gymnasium and RecurrentPPO."
+  summary: "A reinforcement learning (RL) project for training, evaluating and comparing three trading agents with Gymnasium and RecurrentPPO."
   problem: "An ML trading strategy cannot be assessed from a single chart: it needs a reproducible environment, an explicit reward and comparable evaluation."
   solution:
     - "A Gymnasium environment with defined states, actions, costs and risk limits."
