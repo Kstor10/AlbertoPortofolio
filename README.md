@@ -74,10 +74,14 @@ Todas las rutas siguientes son relativas a la carpeta del proyecto.
 | `src/pages/404.astro` | Página de enlace inexistente. |
 | `src/content/projects/propia.md` | Caso PropIA: seis capturas seleccionadas. |
 | `src/content/projects/onchain-agent.md` | Caso Onchain Agent: ocho capturas y límites de la evaluación offline. |
-| `src/content/projects/the-looper.md` | Caso The Looper: seis capturas seleccionadas. |
+| `src/content/projects/the-looper.md` | Caso Spartee: ocho capturas seleccionadas. |
 | `src/content/projects/planificador-turnos.md` | Caso académico de turnos: cuatro capturas. |
 | `src/content/projects/focusflow.md` | Caso FocusFlow: cuatro capturas. |
-| `public/images/projects/` | Las 28 imágenes WebP publicadas, organizadas por proyecto. |
+| `src/content/projects/big-data-bicing.md` | Caso individual Big Data Bicing: cuatro evidencias. |
+| `src/content/projects/finanzas-personales.md` | Evolución individual de consola a JavaFX/MySQL: tres evidencias. |
+| `src/content/projects/m05-grupo04.md` | Caso grupal Java/TDD con atribución específica: tres diagramas. |
+| `src/content/projects/big-data-aws-grupo10.md` | Caso grupal AWS con atribución específica: tres evidencias. |
+| `public/images/projects/` | Las 41 imágenes WebP publicadas, organizadas por proyecto. |
 | `public/cv-luis-alberto-davalos-es.pdf` | CV público español orientado a desarrollo de aplicaciones e IA, dos páginas A4. |
 | `public/cv-luis-alberto-davalos-en.pdf` | CV descargable inglés, una página A4. |
 | `public/favicon.svg` | Icono AD del sitio. |
@@ -137,7 +141,7 @@ La herramienta genera las versiones estándar desde `src/data/cv.json`; no recon
 
 ## Privacidad y publicación
 
-El sitio no usa claves, analítica, formularios con almacenamiento, cookies de seguimiento ni servicios de los proyectos mostrados. Solo sirve sus capturas y explicaciones. The Looper y Onchain Agent siguen sin enlace a sus repositorios privados. PropIA y FocusFlow enlazan a sus repositorios públicos verificados.
+El sitio no usa claves, analítica, formularios con almacenamiento, cookies de seguimiento ni servicios de los proyectos mostrados. Solo sirve sus capturas y explicaciones. Spartee, Onchain Agent y Finanzas personales siguen sin enlace a sus repositorios privados. PropIA, FocusFlow, Big Data Bicing, M05 Grupo 04 y Big Data Grupo 10 enlazan a sus repositorios públicos verificados.
 
 `fase-1/`, `fase-2/`, `fase-3/` y los informes de QA locales quedan excluidos de Git. Las capturas finales que sí se distribuirán están únicamente en `public/`. No copies el CV original, bases de datos, `.env`, logs de clientes ni archivos internos a esa carpeta: todo lo que hay en `public/` será descargable.
 
