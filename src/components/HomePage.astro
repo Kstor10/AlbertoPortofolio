@@ -20,7 +20,7 @@ const copy = es ? {
   about: [
     "Mi interés por la tecnología empezó con Bitcoin y blockchain en 2014. Mi trayectoria profesional comenzó en la hostelería, trabajando con equipos internacionales y aprendiendo a escuchar a personas con necesidades muy distintas.",
     "La inteligencia artificial generativa me impulsó a orientar mi carrera hacia la tecnología. Cofundé Datway.ai y trabajé en proyectos de IA y automatización para empresas, traduciendo necesidades reales en herramientas útiles y decisiones de producto concretas.",
-    "Me gusta participar desde la definición del problema hasta la primera versión de un producto. Utilizo herramientas de IA para apoyar el desarrollo y reviso y pruebo las soluciones. Ese enfoque guía The Looper y otros proyectos propios.",
+    "Me gusta participar desde la definición del problema hasta la primera versión de un producto. Utilizo herramientas de IA para apoyar el desarrollo y reviso y pruebo las soluciones. Ese enfoque guía Spartee y otros proyectos propios.",
     "Actualmente estudio Desarrollo de Aplicaciones Multiplataforma. Quiero profundizar en Python, Java, TypeScript, React, React Native, Node.js, SQL y Supabase; mejorar en testing, arquitectura, cloud y MLOps; y seguir explorando agentes de IA con CrewAI, LangChain, LangFlow, Eliza, OpenClaw, Hermes y MCP. Mi objetivo es construir una base técnica sólida para desarrollar productos propios y colaborar con equipos profesionales.",
   ],
   journey: "Mi recorrido",
@@ -45,7 +45,7 @@ const copy = es ? {
   about: [
     "My interest in technology began with Bitcoin and blockchain in 2014. I started my career in hospitality, working with international teams and learning to listen to people with very different needs.",
     "Generative AI inspired me to move into technology. I co-founded Datway.ai and worked on AI and automation projects for businesses, translating real needs into useful tools and concrete product decisions.",
-    "I enjoy taking part from defining the problem to building a first version. I use AI tools to support development and review and test the solutions. That approach guides The Looper and my other personal projects.",
+    "I enjoy taking part from defining the problem to building a first version. I use AI tools to support development and review and test the solutions. That approach guides Spartee and my other personal projects.",
     "I am studying Multiplatform Application Development. I want to deepen my knowledge of Python, Java, TypeScript, React, React Native, Node.js, SQL and Supabase; improve at testing, architecture, cloud and MLOps; and keep exploring AI agents with CrewAI, LangChain, LangFlow, Eliza, OpenClaw, Hermes and MCP. My goal is to build strong technical foundations for creating my own products and collaborating with professional teams.",
   ],
   journey: "My journey",
@@ -95,7 +95,18 @@ const copy = es ? {
         <section class="home-education-group">
           <h3>{group.title}</h3>
           <div>{group.items.map((item) => (
-            <article class="home-education-item"><div><h4>{item.name}</h4><p>{item.provider}</p></div><div class="home-education-meta"><span>{item.date}</span><span>{item.kind}</span></div></article>
+            <article class="home-education-item">
+              <div>
+                <h4>{item.name}</h4>
+                <p>{item.provider}</p>
+                {"credential" in item && (
+                  <a class="home-education-credential" href={item.credential.href} target="_blank" rel="noreferrer">
+                    {es ? "Ver credencial" : "View credential"} · {item.credential.id} ↗
+                  </a>
+                )}
+              </div>
+              <div class="home-education-meta"><span>{item.date}</span><span>{item.kind}</span></div>
+            </article>
           ))}</div>
         </section>
       ))}

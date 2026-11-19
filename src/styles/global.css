@@ -156,6 +156,8 @@ img { display: block; max-width: 100%; }
 .education-item p, .education-date { margin: .3rem 0 0; color: #c0cde0; font-size: .82rem; line-height: 1.6; }
 .education-item .education-date { margin-top: .1rem; }
 .education-kind { text-align: right; }
+.education-item .education-credential { display: inline-block; margin-top: .55rem; color: #fff; font-size: .78rem; text-decoration: underline; text-decoration-color: #7385a1; text-underline-offset: .25rem; }
+.education-item .education-credential:hover { text-decoration-color: currentColor; }
 .end-links { display: flex; flex-wrap: wrap; gap: 1rem 2rem; padding-top: 3rem; font-size: .85rem; font-weight: 700; }
 .standalone-projects { padding-bottom: 7rem; }
 .standalone-projects .project-grid { margin-top: 0; }
@@ -287,6 +289,8 @@ body { background: var(--home-ground); }
 .home-education-item:first-child { padding-top: 0; border-top: 0; }
 .home-education-item h4 { margin: 0; font-size: .92rem; line-height: 1.5; }
 .home-education-item p { margin: .35rem 0 0; color: var(--home-muted); font-size: .82rem; line-height: 1.55; }
+.home-education-credential { display: inline-block; margin-top: .55rem; color: var(--home-text); font-size: .76rem; text-decoration: underline; text-decoration-color: #55708a; text-underline-offset: .25rem; }
+.home-education-credential:hover { text-decoration-color: currentColor; }
 .home-education-meta { display: grid; align-content: start; gap: .35rem; min-width: 8rem; color: var(--home-muted); font-size: .76rem; text-align: right; }
 .home-cv { margin-top: 1rem; }
 .home-project-list { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 1.5rem; }

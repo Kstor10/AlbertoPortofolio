@@ -15,6 +15,7 @@ const copy = es ? {
   index: "Explorar formación",
   profile: "Conocer mi trayectoria",
   cv: "Descargar CV público",
+  credential: "Ver credencial",
 } : {
   title: "Education",
   description: "Alberto Dávalos’s education in artificial intelligence, product, blockchain and application development.",
@@ -23,6 +24,7 @@ const copy = es ? {
   index: "Explore education",
   profile: "Read my story",
   cv: "Download public résumé",
+  credential: "View credential",
 };
 ---
 <BaseLayout locale={locale} title={copy.title} description={copy.description} alternatePath={es ? "/en/education/" : "/formacion/"}>
@@ -41,7 +43,15 @@ const copy = es ? {
           {group.items.map(item => (
             <article class="education-item">
               <div class="education-date">{item.date}</div>
-              <div><h3>{item.name}</h3><p>{item.provider}</p></div>
+              <div>
+                <h3>{item.name}</h3>
+                <p>{item.provider}</p>
+                {"credential" in item && (
+                  <a class="education-credential" href={item.credential.href} target="_blank" rel="noreferrer">
+                    {copy.credential} · {item.credential.id} ↗
+                  </a>
+                )}
+              </div>
               <p class="education-kind">{item.kind}</p>
             </article>
           ))}

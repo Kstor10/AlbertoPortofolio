@@ -5,6 +5,20 @@ export const education = {
       title: "Inteligencia artificial y producto",
       description: "Formación en IA generativa, modelos de lenguaje y gestión de producto.",
       items: [
+        {
+          name: "Claude + Codex Certified PM",
+          provider: "The Product Compass",
+          date: "18 de noviembre de 2026",
+          kind: "Certificación",
+          credential: { id: "CERT-34D81A47", href: "https://www.accredia.io/cert/CERT-34D81A47" },
+        },
+        {
+          name: "AI Agents Certified PM",
+          provider: "The Product Compass",
+          date: "17 de noviembre de 2026",
+          kind: "Certificación",
+          credential: { id: "CERT-462EE7E3", href: "https://www.accredia.io/cert/CERT-462EE7E3" },
+        },
         { name: "Latitude AI PM Course", provider: "Latitud", date: "Diciembre 2025", kind: "Curso" },
         { name: "LLM Foundations Certified PM", provider: "The Product Compass", date: "Octubre 2025", kind: "Formación" },
         { name: "Máster en IA e Innovación", provider: "Founderz × Microsoft", date: "2024–2025", kind: "Máster" },
@@ -36,6 +50,20 @@ export const education = {
       title: "Artificial intelligence & product",
       description: "Education in generative AI, language models and product management.",
       items: [
+        {
+          name: "Claude + Codex Certified PM",
+          provider: "The Product Compass",
+          date: "November 18, 2026",
+          kind: "Certification",
+          credential: { id: "CERT-34D81A47", href: "https://www.accredia.io/cert/CERT-34D81A47" },
+        },
+        {
+          name: "AI Agents Certified PM",
+          provider: "The Product Compass",
+          date: "November 17, 2026",
+          kind: "Certification",
+          credential: { id: "CERT-462EE7E3", href: "https://www.accredia.io/cert/CERT-462EE7E3" },
+        },
         { name: "Latitude AI PM Course", provider: "Latitud", date: "December 2025", kind: "Course" },
         { name: "LLM Foundations Certified PM", provider: "The Product Compass", date: "October 2025", kind: "Training" },
         { name: "Master in AI and Innovation", provider: "Founderz × Microsoft", date: "2024–2025", kind: "Master’s" },
